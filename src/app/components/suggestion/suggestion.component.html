@@ -1,0 +1,10 @@
+
+<div ngClass="class_section_aside_group_container">
+    <div #userRef ngClass="class_section_aside_group" *ngFor="let user of users; index as num">
+        <app-avatar [avatar]="user.picture.medium"></app-avatar>
+        <span ngClass="class_section_aside_group_title_container">
+            <span>{{user.name.first}} {{user.name.last}}</span>
+            <app-button (click)="addContact(user)" title="Añadir" color="primary"></app-button>
+        </span>
+    </div>
+</div>

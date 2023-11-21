@@ -1,0 +1,35 @@
+.class_section_menu_item_container {
+    cursor: pointer;
+}
+
+.class_section_contact_menu_actions_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 15px;
+}
+
+.class_section_contact_menu_actions {
+    position: absolute;
+    z-index: 100;
+    background-color: white;
+    top: 30px;
+    right: 30px;
+    border-radius: 5px;
+    list-style: none;
+}
+
+.class_section_contact_menu_actions li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 250px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.class_section_contact_menu_actions li:hover {
+    background: lightblue;
+    transition: 0.25s;
+}

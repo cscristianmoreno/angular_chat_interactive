@@ -1,0 +1,42 @@
+:host {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    /* border-style: */
+    margin-left: 25px;
+}
+
+.class_section_user_container {
+    display: flex;
+    align-items: center;
+}
+
+.class_section_user_image_container {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.class_section_user_image_container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.class_section_user_name_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 15px;
+}
+
+.class_section_user_name_container span:nth-child(1) {
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.class_section_user_name_container span:nth-child(2) {
+    color: gray;
+    /* font-size: 14   px; */
+}

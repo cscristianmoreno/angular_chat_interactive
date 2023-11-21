@@ -1,0 +1,126 @@
+/* Moto G4 - Galaxy S5 */
+@media only screen and (max-width: 988px) {
+    .class_section_menu_container {
+        width: 100vw !important;
+        /* transition: 2s; */
+    }
+
+    /* .class_section_container {
+        width: initial !important;
+    } */
+
+    .class_section_index_center {
+        width: auto !important;
+    }
+    
+    .class_section_chat_container {
+        width: 100vw !important;
+    }
+
+    .class_section_aside_container {
+        width: 100vw !important;
+    }
+
+    .class_section_message_text_container {
+        max-width: 200px !important;
+    }
+
+    .class_section_header_menu {
+        width: 325px !important;
+    }
+
+    .class_section_contact_menu_actions {
+        right: 10px !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+}
+
+/* Pixel 2 */
+@media only screen and (max-width: 411px) and (max-height: 731px) {
+}
+
+/* Pixel 2 XL */
+@media only screen and (max-width: 411px) and (max-height: 823px) {
+}
+
+/* Pixel 5 */
+@media only screen and (max-width: 393px) and (max-height: 851px) {
+    .xxl {
+        width: 200px !important;
+        height: 200px !important;
+    }
+}
+
+/* iPhone 5/SE */
+@media only screen and (max-width: 320px) and (max-height: 568px) {
+}
+
+/* iPhone 6/7/8 */
+@media only screen and (max-width: 375px) and (max-height: 667px) {
+    .xxl {
+        width: inherit !important;
+        height: inherit !important;
+    }
+}
+
+/* iPhone 6/7/8 Plus */
+@media only screen and (max-width: 414px) and (max-height: 736px) {
+}
+
+/* iPhone X */
+@media only screen and (max-width: 375px) and (max-height: 812px) {
+}
+
+/* iPad */
+@media only screen and (min-width: 700px) {
+}
+
+/* Ipad Air MAX */ 
+@media only screen and (width: 1180px) and (height: 820px) {
+}
+
+/* Ipad Mini */ 
+@media only screen and (width: 1024px) and (height: 768px) {
+}
+
+/* Surface Pro 7 */
+@media only screen and (width: 912px) and (height: 1368px) {
+}
+
+/* iPhone Pro */
+@media only screen and (max-width: 1024px) and (max-height: 1366px) {
+}
+
+/* Surface Duo */
+@media only screen and (width: 540px) and (height: 720px) {
+}
+
+/* Galaxy Fold */
+@media only screen and (max-width: 280px) {
+}
+
+/* Nest Hub */
+@media only screen and (width: 1024px) {
+}
+
+/* Nest Hub Max */
+@media only screen and (width: 1280px) {
+}
+
+/* Samsumg Galaxy A51/71 */
+@media only screen and (max-width: 412px) and (max-height: 914px) {
+}
+
+
+/* Samsung Galaxy S8+ */
+@media only screen and (max-width: 412px) and (max-height: 914px) {
+}
+
+/* Nest Hub Max */
+@media only screen and (width: 768px) and (height: 1024px) {
+}
+
+@media only screen and (min-width: 600px) and (max-height: 600px) {
+}

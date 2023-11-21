@@ -1,0 +1,14 @@
+:host ::ng-deep .mat-icon {
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.md {
+    padding: 5px;
+    transform: scale(0.75);
+}
+
+.lg {
+    padding: 5px;
+    transform: scale(1);
+}

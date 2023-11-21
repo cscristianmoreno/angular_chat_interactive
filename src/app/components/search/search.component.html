@@ -1,0 +1,26 @@
+<div ngClass="class_section_menu_search_container">
+    <div ngClass="class_section_menu_search_titles_container">
+        <div (click)="setChannelEventEmitter(0)" [ngClass]="'class_section_menu_search_titles ' + ((channel === 0) ? 'class_section_menu_search_titles_selected' : null)">
+            <div *ngIf="this.chats > 0" ngClass="class_icon_circle"></div>
+            <span>CHATS</span>
+        </div>
+        <div (click)="setChannelEventEmitter(1)" [ngClass]="'class_section_menu_search_titles ' + ((channel === 1) ? 'class_section_menu_search_titles_selected' : null)">
+            <div *ngIf="this.groups > 0" ngClass="class_icon_circle"></div>
+            <span>GRUPOS</span>
+        </div>
+        <div (click)="setChannelEventEmitter(2)" [ngClass]="'class_section_menu_search_titles ' + ((channel === 2) ? 'class_section_menu_search_titles_selected' : null)">
+            <!-- <div ngClass="class_icon_circle"></div> -->
+            <span>CONTACTOS</span>
+        </div>
+
+        <div (click)="setChannelEventEmitter(3)" [ngClass]="'class_section_menu_search_titles ' + ((channel === 3) ? 'class_section_menu_search_titles_selected' : null)">
+            <div *ngIf="this.requests > 0" ngClass="class_icon_circle"></div>
+            <span>SOLICITUDES</span>
+        </div>
+    </div>
+    
+    <div ngClass="class_section_menu_search class_box_shadow">
+        <mat-icon fontIcon="search"></mat-icon>
+        <input #idSearch (keyup)="onKeyUpEvent()" placeholder="Buscar"/>
+    </div>
+</div>

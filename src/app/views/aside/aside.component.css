@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 550px;
+    box-sizing: border-box;
+}
+
+.class_section_aside_container {
+    background-color: white;
+    height: 100%;
+}

@@ -1,0 +1,7 @@
+.class_section_index_center {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}

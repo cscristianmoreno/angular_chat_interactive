@@ -1,0 +1,11 @@
+<div #messageRef ngClass="class_section_message_container">
+    <app-avatar [avatar]="avatar"></app-avatar>
+    
+    <div ngClass="class_section_message_text_container">
+        <span>{{message.message}}</span>
+        <div ngClass="class_section_message_text_date">
+            <span>{{messageDate(message.date)}}</span>
+            <span *ngIf="this.user.id === message.id_send" ngClass="class_section_message_text_check class_icon_check" [innerHTML]="iconCheck"></span>
+        </div>
+    </div>    
+</div>

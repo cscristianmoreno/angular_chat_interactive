@@ -1,0 +1,19 @@
+.class_section_menu_item_name_message {
+    display: flex;
+    height: 40px;
+}
+
+.class_section_menu_item_name_message_avatar_container {
+    position: absolute;
+}
+
+.class_section_menu_item_name_message ::ng-deep div:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    /* position: absolute; */
+    z-index: 1;
+}
+
+.class_section_menu_item_message_date {
+    top: 50px;
+}

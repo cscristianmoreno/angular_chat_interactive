@@ -1,0 +1,19 @@
+
+<div #elementRef [style]="'background-color: ' + ((chatIndex === users[num].id) ? '#2f3343' : 'white')" (click)="selectChat(num)" ngClass='class_section_menu_item_container class_box_shadow' *ngFor="let i of users; index as num">
+    <app-avatar [avatar]="users[num].picture.medium"></app-avatar>
+    
+    <div ngClass="class_section_menu_item_name_container">
+        <span [style]="'color: ' + ((chatIndex === users[num].id) ? 'white' : 'black')" ngClass="class_section_menu_item_name_title">{{users[num].name.first}} {{users[num].name.last}}</span>
+        <span [style]="'color: ' + ((chatIndex === users[num].id) ? 'white' : 'gray')" ngClass="class_section_menu_item_name_message">
+            <span *ngIf="checkIconMessage(users[num].id)" ngClass="class_icon_check" [innerHTML]="iconCheck"></span>
+            {{lastMessage(users[num].id)}}
+        </span>
+    </div>
+    
+    <div ngClass="class_section_menu_item_message_date">
+        <span [style]="'color: ' + ((chatIndex === users[num].id) ? 'white' : 'black')" >{{messageDate(users[num].id)}}</span>
+        <span *ngIf="chatIndex !== users[num].id && messageCount(users[num].id)">{{messageCount(users[num].id)}}</span>
+    </div>
+</div>
+
+<app-array-empty [array]="users"></app-array-empty>

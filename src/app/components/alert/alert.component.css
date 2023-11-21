@@ -1,0 +1,17 @@
+.class_section_alert_container {
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    position: absolute;
+    background-color: rgb(80, 128, 216);
+    right: 25px;
+    border-radius: 5px;
+    z-index: 10;
+    padding: 10px;
+}
+
+.class_alert_contaner {
+    display: flex;
+    color: white;
+}

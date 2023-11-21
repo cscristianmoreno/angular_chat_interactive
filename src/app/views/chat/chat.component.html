@@ -1,0 +1,40 @@
+<div ngClass="class_section_chat_container">
+    <ng-template [ngIf]="chatIndex !== null" [ngIfElse]="showChatDesign">
+        <div ngClass="class_section_bottom_header class_section_chat_header_container class_box_shadow class_header_margin_top">
+
+            <app-chat-profile (click)="onClickArrowForward()" [profile]="userProfile"></app-chat-profile>
+            
+            <div *ngIf="responsive" ngClass="class_section_chat_header_actions_container">
+                <app-icon (click)="onClickArrowBack()" icon="menu"></app-icon>
+            </div>
+        </div>
+        
+        <div #idMessageContainer ngClass="class_section_chat">
+            <div #idMessage [style]="'flex-direction: ' + ((msg[num].id_send === user.id) ? 'row-reverse' : 'row')" ngClass="class_section_chat_messages_divisor" *ngFor="let item of messages as msg; index as num">
+                <app-message [avatar]="findAvatar(msg[num].id_send)" [message]="msg[num]"></app-message>
+            </div>
+        </div>
+
+        <div ngClass="class_section_chat_send_message_container">
+            <textarea #idFieldMessage (keydown)="onKeyPress($event)" placeholder="Escribe tu mensaje aquí"></textarea>
+            <app-icon (click)="sendMessage()" icon="message" size="lg"></app-icon>
+        </div>
+    </ng-template>
+
+    <ng-template #showChatDesign>
+        <div ngClass="class_section_bottom_header class_section_chat_header_container class_box_shadow class_header_margin_top">
+            <!-- <app-chat-profile [profile]="userProfile"></app-chat-profile> -->
+            
+            <div ngClass="class_section_chat_header_actions_container">
+            </div>
+        </div>
+        
+        <div ngClass="class_section_chat">
+        </div>
+
+        <div ngClass="class_section_chat_send_message_container">
+            <textarea #idFieldMessage placeholder="Escribe tu mensaje aquí" disabled></textarea>
+            <mat-icon fontIcon="send"></mat-icon>
+        </div>
+    </ng-template>
+</div>

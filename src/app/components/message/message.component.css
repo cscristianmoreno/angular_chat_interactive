@@ -1,0 +1,35 @@
+.class_section_message_container {
+    display: flex;
+    transition: 0.25s;
+    gap: 25px;
+}
+
+.class_section_message_text_container {
+    /* margin-left: 25px; */
+    /* margin-right: 25px; */
+    padding: 15px;
+    min-width: 50px;
+    max-width: 300px;
+    border-radius: 10px;
+    background-color: #4f57cc;
+    position: relative;
+    color: white;
+    padding-bottom: 25px;
+    /* font-weight: bolder; */
+}
+
+.class_section_message_text_container span:nth-child(1) {
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+.class_section_message_text_date {
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+/* :host ::ng-deep svg path {
+    fill: gray !important;
+} */

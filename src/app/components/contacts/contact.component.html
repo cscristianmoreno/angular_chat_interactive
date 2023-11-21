@@ -1,0 +1,20 @@
+
+<div #usersRef (click)="selectChat(users[num].id)" [style]="'background-color: ' + ((chatIndex === users[num].id) ? '#2f3343' : 'white')" ngClass='class_section_menu_item_container class_box_shadow' *ngFor="let i of users; index as num">
+    <app-avatar [avatar]="users[num].picture.medium"></app-avatar>
+    
+    <div ngClass="class_section_menu_item_name_container">
+        <span [style]="'color: ' + ((chatIndex === users[num].id) ? 'white' : 'black')" ngClass="class_section_menu_item_name_title">{{users[num].name.first}} {{users[num].name.last}}</span>
+        <span [style]="'color: ' + ((chatIndex === users[num].id) ? 'white' : 'gray')" ngClass="class_section_menu_item_name_message">@{{users[num].login.username}}</span>
+    </div>
+    
+    <div ngClass="class_section_contact_menu_actions_container">
+        <app-icon (click)="openContactSubMenu($event, num)" [style]="'color: ' + ((chatIndex === users[num].id) ? 'white' : 'black')" icon="toc"></app-icon>
+        
+        <ul *ngIf="openContactMenuActions && openContactMenuActionsId === num" ngClass="class_section_contact_menu_actions class_box_shadow">
+            <li (click)="deleteContact(users[num].id, num)"><app-icon icon="cancel"></app-icon>Eliminar contacto</li>
+            <li (click)="clearChat(users[num].id)"><app-icon icon="delete"></app-icon>Limpiar conversación</li>
+        </ul>
+    </div>
+</div>
+
+<app-array-empty [array]="users"></app-array-empty>

@@ -1,0 +1,37 @@
+<div ngClass="class_section_menu_container">
+    <div ngClass="class_section_bottom_header class_section_menu_header_container class_box_shadow class_header_margin_top">
+        <mat-icon ngClass="class_section_menu_header_icon" fontIcon="chat_bubble"></mat-icon>
+        <mat-icon ngClass="class_section_menu_header_icon" fontIcon="phone"></mat-icon>
+        <mat-icon ngClass="class_section_menu_header_icon" fontIcon="email"></mat-icon>
+        <mat-icon ngClass="class_section_menu_header_icon" fontIcon="group"></mat-icon>
+        
+        <app-avatar [avatar]="user.picture.medium"></app-avatar>
+    </div>
+
+    
+    <!-- <div ngClass="class_section_menu_subheader_container">
+        <span ngClass="class_section_menu_title">Chats</span>
+        
+        <button ngClass="class_section_menu_button_add_container class_icon_gradient">
+            <mat-icon ngclass="class_icon_add" fontIcon="add"></mat-icon>
+        </button>
+    </div> -->
+
+    <app-search (channelEventEmitter)="channelEventEmitter($event)"></app-search>
+
+    <ng-template [ngIf]="channel === 0">
+        <app-chat-menu></app-chat-menu>
+    </ng-template>
+
+    <ng-template [ngIf]="channel === 1">
+        <app-group></app-group>
+    </ng-template>
+
+    <ng-template [ngIf]="channel === 2">
+        <app-contact></app-contact>
+    </ng-template>
+
+    <ng-template [ngIf]="channel === 3">
+        <app-request></app-request>
+    </ng-template>
+</div>

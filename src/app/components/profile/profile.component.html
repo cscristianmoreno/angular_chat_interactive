@@ -1,0 +1,69 @@
+<!-- <div ngClass="class_section_bottom_header class_box_shadow">
+    <span ngClass="class_section_aside_title">Perfil</span>
+</div> -->
+
+<div *ngIf="user !== undefined" ngClass="class_section_profile_container">
+    <app-avatar style="margin-top: 30px;" [avatar]="user.picture.large" size="xxl" border="solid"></app-avatar>
+    
+    <div style="overflow: initial" ngClass="class_section_profile_user_information_container">
+        <b style="font-size: 20px;">{{user.name.first}} {{user.name.last}}</b>
+        <small ngClass="class_section_profile_user_job">{{user.job}}</small>
+    </div>
+
+    <div ngClass="class_section_profile_user_information_container">
+        <div ngClass="class_section_profile_user_information">
+            <app-icon icon="phone"></app-icon>
+            <small>{{user.cell}}</small>
+        </div>
+
+        <div ngClass="class_section_profile_user_information">
+            <app-icon icon="my_location"></app-icon>
+            <small>{{user.location.country}}</small>
+        </div>
+
+        <div ngClass="class_section_profile_user_information">
+            <app-icon icon="location_city"></app-icon>
+            <small>{{user.location.city}}</small>
+        </div>
+
+        <div ngClass="class_section_profile_user_information">
+            <app-icon icon="person"></app-icon>
+            <small>@{{user.login.username}}</small>
+        </div>
+
+        <div ngClass="class_section_profile_user_information">
+            <app-icon icon="alternate_email"></app-icon>
+            <small>{{user.email}}</small>
+        </div>
+
+        <div ngClass="class_section_profile_user_information">
+            <app-icon icon="date_range"></app-icon>
+            <small>{{getTime(user.date)}}</small>
+        </div>
+
+        <div ngClass="class_section_profile_user_information">
+            <app-icon icon="group"></app-icon>
+            <small>Es miembro de {{findAllGroups().length}} grupo(s)</small>
+        </div>
+
+        <div ngClass="class_section_profile_group_container">
+            <h3>Grupos</h3>
+
+            <div ngClass="class_section_profile_group">
+                <ng-template [ngIf]="findAllGroups().length > 0" [ngIfElse]="noJoined">
+                    <div *ngFor="let group of findAllGroups(); index as i">
+                        <div ngClass="class_section_profile_group_name_container">
+                            <b>{{group}}</b>
+                        </div>
+                    </div>
+                </ng-template>
+
+                <ng-template #noJoined>
+                    <small>No pertenece a ningún grupo</small>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+
+    <app-icon *ngIf="responsive" (click)="onClickMoveToChat()" [ngStyle]="{'position': 'absolute', 'right': '25px', 'top': '25px'}" icon="chat"></app-icon>
+</div>

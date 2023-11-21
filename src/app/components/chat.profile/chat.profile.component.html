@@ -1,0 +1,10 @@
+<div ngClass="class_section_user_container">
+    <div ngClass="class_section_user_image_container">
+        <img [src]="profile?.picture?.medium">   
+    </div>
+
+    <div ngClass="class_section_user_name_container">
+        <span>{{profile?.name?.first}} {{profile?.name?.last}}</span>
+        <span>Última sesión: Hace 20 minutos</span>
+    </div>
+</div>

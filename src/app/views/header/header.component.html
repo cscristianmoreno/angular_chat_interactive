@@ -1,0 +1,28 @@
+<header ngClass="class_section_header class_box_shadow">
+    <span>Chat</span>
+
+    <div ngClass="class_section_header_notifications_container">
+        <!-- <div (click)="openSuggestions()" ngClass="class_section_header_notifications"> 
+            <app-icon icon="person_add" size="lg"></app-icon>
+            
+            <div [ngClass]="'class_section_header_menu class_box_shadow ' + ((menuNotifications) ? 'class_section_header_menu_show_notifications' : null)">
+                <app-suggestion *ngIf="menuSuggestions"></app-suggestion>
+            </div>
+        </div> -->
+
+        <div (click)="openNotifications()" ngClass="class_section_header_notifications"> 
+            
+            <span *ngIf="notifications > 0">{{(notifications > 99) ? '99+' : notifications}}</span>
+            <app-icon icon="notifications" size="lg"></app-icon>
+            
+            <div *ngIf="menuNotifications" [ngClass]="'class_section_header_menu class_box_shadow ' + ((menuNotifications) ? 'class_section_header_menu_show_notifications' : null)">
+                <div ngClass="class_section_header_menu_title">
+                    <b style="font-size: 16px">Notificaciones</b>
+                </div>
+
+                <app-notification ></app-notification>
+            </div>
+        </div>
+
+    </div>
+</header>

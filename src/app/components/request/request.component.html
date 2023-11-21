@@ -1,0 +1,15 @@
+
+<div #elementUsersRef ngClass='class_section_menu_item_container class_box_shadow' *ngFor="let i of users; index as num">
+    <app-avatar [avatar]="users[num].picture.medium"></app-avatar>
+    
+    <div ngClass="class_section_menu_item_name_container">
+        <span ngClass="class_section_menu_item_name_title">{{users[num].name.first}} {{users[num].name.last}}</span>
+        
+        <div ngClass="class_request_button_container">
+            <app-button (click)="addContact(users[num].id, num)" title="Aceptar" color="primary"></app-button>
+            <app-button (click)="deleteRequest(users[num].id, num)" title="Eliminar"></app-button>
+        </div>
+    </div>
+</div>
+
+<app-array-empty [array]="users"></app-array-empty>

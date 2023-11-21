@@ -1,0 +1,12 @@
+
+
+<div ngClass="class_section_notification_group_container">
+    <div #elementRef ngClass="class_section_notification_group" *ngFor="let noti of notifications; index as num">
+        <app-avatar [avatar]="noti.avatar"></app-avatar>
+        <span ngClass="class_section_notification_group_title_container">
+            <span>{{noti.name}}</span>
+            <span>{{noti.description}}</span>
+            <small style="color: gray">{{getTime(noti.date)}}</small>
+        </span>
+    </div>
+</div>
