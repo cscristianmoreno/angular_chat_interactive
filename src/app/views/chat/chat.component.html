@@ -17,7 +17,7 @@
 
         <div ngClass="class_section_chat_send_message_container">
             <textarea #idFieldMessage (keydown)="onKeyPress($event)" placeholder="Escribe tu mensaje aquí"></textarea>
-            <app-icon (click)="sendMessage()" icon="send" size="lg"></app-icon>
+            <app-icon style="margin-right: 5px;" (click)="sendMessage()" icon="send" size="lg"></app-icon>
         </div>
     </ng-template>
 
@@ -34,7 +34,7 @@
 
         <div ngClass="class_section_chat_send_message_container">
             <textarea #idFieldMessage placeholder="Escribe tu mensaje aquí" disabled></textarea>
-            <mat-icon fontIcon="send"></mat-icon>
+            <mat-icon style="margin-right: 5px;" ngClass="class_section_chat_send_message_icon" fontIcon="send"></mat-icon>
         </div>
     </ng-template>
 </div>
