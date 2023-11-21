@@ -1,5 +1,5 @@
 
-<div ngClass='class_section_menu_item_container class_box_shadow' *ngFor="let i of groups; index as num">
+<div #groupsRef ngClass='class_section_menu_item_container class_box_shadow' *ngFor="let i of groups; index as num">
     
     <div ngClass="class_section_menu_item_name_container">
         <span ngClass="class_section_menu_item_name_title">{{groups[num].name}}</span>

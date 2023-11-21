@@ -20,22 +20,22 @@ export class AiService {
 
     public async aiStart(): Promise<void> {
 
-        const random: number = Math.floor(Math.random() * 6);
+        const random: number = Math.floor(Math.random() * 10);
 
         switch(random) {
-            case 0: {
+            case 0: case 1: {
                 this.groupAI.generateRandomGroup();
                 break;
             }
-            case 1: {
+            case 2: case 4: {
                 this.memberAI.generateRandomMember();
                 break;
             }
-            case 2: {
+            case 5: {
                 this.requestAI.generateRandomFriend();
                 break;
             }
-            case 3: {
+            case 6: {
                 await this.registerAI.generateRandomUser();
                 break;
             }

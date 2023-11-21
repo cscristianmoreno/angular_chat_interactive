@@ -9,7 +9,7 @@
             <span>GRUPOS</span>
         </div>
         <div (click)="setChannelEventEmitter(2)" [ngClass]="'class_section_menu_search_titles ' + ((channel === 2) ? 'class_section_menu_search_titles_selected' : null)">
-            <!-- <div ngClass="class_icon_circle"></div> -->
+            <div *ngIf="this.contacts > 0" ngClass="class_icon_circle"></div>
             <span>CONTACTOS</span>
         </div>
 

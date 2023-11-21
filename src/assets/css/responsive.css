@@ -44,6 +44,16 @@
     .class_section_container {
         height: 800px !important;
     }
+
+    .class_section_header_menu {
+        width: 500px !important;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .class_section_header_menu {
+        width: 500px !important;
+    }
 }
 
 @media only screen and (max-width: 600px) {

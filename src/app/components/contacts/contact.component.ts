@@ -122,12 +122,15 @@ export class ContactComponent implements OnInit, AfterViewInit {
     public async deleteContact(contact: number | string, position: number): Promise<void> {
         this.openContactMenuActionsId = -1;
         this.isDelete = true;
+
         await this.effectService.createEffect(this.usersRef, position);
+        
         this.users.splice(position, 1);
         this.contactsDTO.delete(this.userService.user.id, contact);
     }
 
     public clearChat(id: number | string): void {
         this.messagesDTO.deleteAllById(this.userService.user.id, id);
+        this.chatService.chatIndex.next(id);
     }
 }
