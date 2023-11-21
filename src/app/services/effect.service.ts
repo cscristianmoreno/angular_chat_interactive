@@ -28,9 +28,9 @@ export class EffectService {
             return;
         }
 
-        // if (this.lastElement === element) {
-        //     return;
-        // }
+        if (this.lastElement === element) {
+            return;
+        }
 
         this.renderer2.setStyle(element, "opacity", 0);
         this.renderer2.setStyle(element, "transform", "scale(0)");
