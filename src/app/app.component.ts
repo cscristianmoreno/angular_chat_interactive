@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from "@angular/core";
 import { AiService } from "./services/ai.service";
 import { MenuComponent } from "./views/menu/menu.component";
 import { ChatComponent } from "./views/chat/chat.component";
@@ -34,6 +34,15 @@ export class AppComponent implements AfterViewInit {
     @ViewChild("sectionRef")
     private sectioRef!: ElementRef;
 
+    @HostListener("window: resize", ["$event"])
+    onResize(): void {
+        if (!this.responsive) {
+            return;
+        }
+
+        this.responsiveService.section.next(this.responsiveService.section.value);
+    }
+
     protected responsive!: boolean;
 
     constructor(private iaService: AiService, private breakpointObserver: BreakpointObserver, private effectService: EffectService,
@@ -45,12 +54,12 @@ export class AppComponent implements AfterViewInit {
         await this.iaService.createUsers();
         this.iaService.aiStart();
 
+        
         this.breakpointObserver.observe([Breakpoints.XSmall, Breakpoints.Small]).subscribe((responsive: BreakpointState) => {
             const { matches } = responsive;
 
-            console.log(matches);
             this.responsive = matches;
-
+            
             if (!matches) {
                 this.responsiveService.section.next(ResponsiveSections.SECTION_MENU);
                 return;

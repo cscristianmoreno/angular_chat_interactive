@@ -5,8 +5,6 @@
     width: 375px;
     height: 100%;
     overflow: hidden;
-    z-index: 99;
-    /* background-color: #efeffd; */
 }
 
 .class_section_menu_header_container {

@@ -5,10 +5,6 @@
         /* transition: 2s; */
     }
 
-    /* .class_section_container {
-        width: initial !important;
-    } */
-
     .class_section_index_center {
         width: auto !important;
     }
@@ -23,6 +19,7 @@
 
     .class_section_message_text_container {
         max-width: 200px !important;
+        border-style: solid;
     }
 
     .class_section_header_menu {
@@ -31,6 +28,29 @@
 
     .class_section_contact_menu_actions {
         right: 10px !important;
+    }
+
+    .class_section_menu_search_titles_container {
+        gap: 10px !important;
+    }
+
+    .class_icon_circle {
+        width: 5px !important;
+        height: 5px !important;
+    }
+
+    .class_section_chat_send_message_container textarea {
+        width: 75% !important;  
+    }
+}
+
+@media only screen and (max-height: 500px) {
+    .class_section_container {
+        height: 800px !important;
+    }
+
+    .class_section_chat_send_message_container textarea {
+        width: 90% !important;  
     }
 }
 

@@ -20,7 +20,7 @@ export class AiService {
 
     public async aiStart(): Promise<void> {
 
-        const random: number = Math.floor(Math.random() * 5);
+        const random: number = Math.floor(Math.random() * 6);
 
         switch(random) {
             case 0: {

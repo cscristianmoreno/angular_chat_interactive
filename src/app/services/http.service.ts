@@ -43,6 +43,7 @@ export class HttpService {
 
             const rand_job: number = Math.floor(Math.random() * JOBS.length);
             const job: string = JOBS[rand_job]; 
+            
             str.id = (id + 1);
             str.job = job;
             str.date = Date.now();
