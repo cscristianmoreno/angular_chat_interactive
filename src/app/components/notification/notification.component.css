@@ -24,8 +24,6 @@
     display: flex;
     flex-direction: column;
     margin-left: 10px;
-    text-overflow: ellipsis;
-    overflow: hidden;
 }
 
 .class_section_notification_group_title_container span:nth-child(1) {

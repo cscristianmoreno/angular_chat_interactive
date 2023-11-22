@@ -1,8 +1,8 @@
 
-<div #groupsRef ngClass='class_section_menu_item_container class_box_shadow' *ngFor="let i of groups; index as num">
+<div #groupsRef [style]="'background-color: ' + ((chatIndex === groups[num].id) ? '#2f3343' : 'white')" ngClass='class_section_menu_item_container class_box_shadow' *ngFor="let i of groups; index as num">
     
     <div ngClass="class_section_menu_item_name_container">
-        <span ngClass="class_section_menu_item_name_title">{{groups[num].name}}</span>
+        <span [style]="'color: ' + ((chatIndex === groups[num].id) ? 'white' : 'black')" ngClass="class_section_menu_item_name_title">{{groups[num].name}}</span>
         <div ngClass="class_section_menu_item_name_message">
             <div [ngStyle]="{'left': ((30 * (num + 1))) + 'px', 'zIndex': user.length - num}" ngClass="class_section_menu_item_name_message_avatar_container" *ngFor="let i of findMembers(groups[num].id) as user; index as num">
                 <app-avatar [avatar]="user[num].picture.medium"></app-avatar>
@@ -12,7 +12,7 @@
     
     <div (click)="joinGroup(groups[num].id)" ngClass="class_section_menu_item_message_date">
         <ng-template [ngIf]="isMember(groups[num].id)" [ngIfElse]="showButtonJoin">
-            <app-button title="Explorar" color="primary"></app-button>
+            <app-button (click)="exploreGroup(groups[num].id)" title="Explorar" color="primary"></app-button>
         </ng-template>
         
         <ng-template #showButtonJoin>

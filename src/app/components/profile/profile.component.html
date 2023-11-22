@@ -7,7 +7,7 @@
     
     <div style="overflow: initial" ngClass="class_section_profile_user_information_container">
         <b style="font-size: 20px;">{{user.name.first}} {{user.name.last}}</b>
-        <small ngClass="class_section_profile_user_job">{{user.job}}</small>
+        <small ngClass="class_section_profile_user_job">{{(chatType === 1) ? user.job : "Dueñ@ del grupo"}}</small>
     </div>
 
     <div ngClass="class_section_profile_user_information_container">
@@ -52,9 +52,7 @@
             <div ngClass="class_section_profile_group">
                 <ng-template [ngIf]="findAllGroups().length > 0" [ngIfElse]="noJoined">
                     <div *ngFor="let group of findAllGroups(); index as i">
-                        <div ngClass="class_section_profile_group_name_container">
-                            <b>{{group}}</b>
-                        </div>
+                        <app-avatar-group [name]="group"></app-avatar-group>
                     </div>
                 </ng-template>
 

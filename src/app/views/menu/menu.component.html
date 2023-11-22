@@ -8,15 +8,6 @@
         <app-avatar [avatar]="user.picture.medium"></app-avatar>
     </div>
 
-    
-    <!-- <div ngClass="class_section_menu_subheader_container">
-        <span ngClass="class_section_menu_title">Chats</span>
-        
-        <button ngClass="class_section_menu_button_add_container class_icon_gradient">
-            <mat-icon ngclass="class_icon_add" fontIcon="add"></mat-icon>
-        </button>
-    </div> -->
-
     <app-search (channelEventEmitter)="channelEventEmitter($event)"></app-search>
 
     <ng-template [ngIf]="channel === 0">

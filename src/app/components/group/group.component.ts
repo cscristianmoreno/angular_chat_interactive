@@ -1,10 +1,13 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, QueryList, ViewChildren } from "@angular/core";
 import { GroupsDTO } from "src/app/dto/groups.dto";
 import { MembersDTO } from "src/app/dto/members.dto";
+import { MessagesGroupDTO } from "src/app/dto/messages.groups.dto";
 import { UsersDTO } from "src/app/dto/users.dto";
+import { ChatType } from "src/app/enums/chat.enum";
 import { groupStruct } from "src/app/models/group.model";
 import { memberStruct } from "src/app/models/member.model";
 import { userStruct } from "src/app/models/user.model";
+import { ChatService } from "src/app/services/chat.service";
 import { EffectService } from "src/app/services/effect.service";
 import { SearchService } from "src/app/services/search.service";
 import { UserService } from "src/app/services/user.service";
@@ -24,13 +27,15 @@ export class GroupComponent implements OnInit, AfterViewInit {
 
     protected groups: groupStruct[] = [];
     protected groupsAux: groupStruct[] = [];
+
+    protected chatIndex!: number | string | null;
     
     @ViewChildren("groupsRef")
     private groupsRef!: QueryList<ElementRef>;
 
     constructor(private groupsDTO: GroupsDTO, private membersDTO: MembersDTO, private userService: UserService, 
         private usersDTO: UsersDTO, private changeDetectorRef: ChangeDetectorRef, private searchService: SearchService, 
-        private effectService: EffectService) {
+        private effectService: EffectService, private chatService: ChatService, private messagesGroupDTO: MessagesGroupDTO) {
     }
 
     ngOnInit(): void { 
@@ -55,6 +60,18 @@ export class GroupComponent implements OnInit, AfterViewInit {
         this.searchService.search$.subscribe((res: string) => {
             this.groups = searchUtil<groupStruct>(this.groupsAux, "name", res);
             this.changeDetectorRef.detectChanges();
+        });
+
+        this.chatService.chatIndex$.subscribe((res: number | string | null) => {
+            if (!res) {
+                return;
+            }
+
+            if (this.chatService.chatType.value !== ChatType.SECTION_CHAT_GROUP) {
+                return;
+            }
+
+            this.chatIndex = res;
         });
     }
 
@@ -101,6 +118,11 @@ export class GroupComponent implements OnInit, AfterViewInit {
         };
 
         this.membersDTO.save(member);
+    }
+
+    public exploreGroup(id: number): void {
+        this.chatService.chatType.next(ChatType.SECTION_CHAT_GROUP);
+        this.chatService.chatIndex.next(id);
     }
 
     public isMember(id: number): boolean {

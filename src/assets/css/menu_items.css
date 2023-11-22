@@ -37,9 +37,6 @@
 
 .class_section_menu_item_name_message {
     color: gray;
-    text-overflow: ellipsis;
-    text-wrap: nowrap;
-    overflow: hidden;
 }
 
 .class_section_menu_item_message_date {

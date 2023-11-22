@@ -5,12 +5,13 @@ import { MessageAI } from "../ai/message.ai";
 import { MemberAI } from "../ai/member.ai";
 import { RequestAI } from "../ai/request.ai";
 import { RegisterAI } from "../ai/register.ai";
+import { MessageGroupAI } from "../ai/message.group.ai";
 
 @Injectable()
 export class AiService {
     
     constructor(private http: HttpService, private groupAI: GroupAI, private messageAI: MessageAI, private memberAI: MemberAI,
-        private requestAI: RequestAI, private registerAI: RegisterAI) {
+        private requestAI: RequestAI, private registerAI: RegisterAI, private messageGroupAI: MessageGroupAI) {
         
     }
 
@@ -20,23 +21,27 @@ export class AiService {
 
     public async aiStart(): Promise<void> {
 
-        const random: number = Math.floor(Math.random() * 10);
+        const random: number = Math.floor(Math.random() * 13);
 
         switch(random) {
             case 0: case 1: {
                 this.groupAI.generateRandomGroup();
                 break;
             }
-            case 2: case 4: {
+            case 2: case 3: case 4: {
                 this.memberAI.generateRandomMember();
                 break;
             }
-            case 5: {
+            case 6: {
                 this.requestAI.generateRandomFriend();
                 break;
             }
-            case 6: {
+            case 7: {
                 await this.registerAI.generateRandomUser();
+                break;
+            }
+            case 8: case 9: case 10: {
+                this.messageGroupAI.generateRandomMessageGroup();
                 break;
             }
             default: {

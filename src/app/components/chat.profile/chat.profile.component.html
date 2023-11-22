@@ -1,10 +1,16 @@
 <div ngClass="class_section_user_container">
-    <div ngClass="class_section_user_image_container">
-        <img [src]="profile?.picture?.medium">   
+    <ng-template [ngIf]="type === 1" [ngIfElse]="groupProfile">
+        <app-avatar [avatar]="avatar" size="md"></app-avatar>   
+        <!-- <img [src]="avatar">    -->
+    </ng-template>
+    
+    <ng-template #groupProfile>
+        <app-avatar-group [name]="name" size="md"></app-avatar-group>        
+    </ng-template>
+        
+    <div ngClass="class_section_user_name_container">
+        <span ngClass="class_text_ellipsis">{{name}}</span>
+        <span *ngIf="type === 1">En línea</span>
     </div>
 
-    <div ngClass="class_section_user_name_container">
-        <span>{{profile?.name?.first}} {{profile?.name?.last}}</span>
-        <span>Última sesión: Hace 20 minutos</span>
-    </div>
 </div>

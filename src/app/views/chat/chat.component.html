@@ -2,7 +2,8 @@
     <ng-template [ngIf]="chatIndex !== null" [ngIfElse]="showChatDesign">
         <div ngClass="class_section_bottom_header class_section_chat_header_container class_box_shadow class_header_margin_top">
 
-            <app-chat-profile (click)="onClickArrowForward()" [profile]="userProfile"></app-chat-profile>
+            <app-chat-profile (click)="onClickArrowForward()" [type]="chatType" [profile]="profile"></app-chat-profile>
+
             
             <div *ngIf="responsive" ngClass="class_section_chat_header_actions_container">
                 <app-icon (click)="onClickArrowBack()" icon="menu"></app-icon>
@@ -10,9 +11,17 @@
         </div>
         
         <div #idMessageContainer ngClass="class_section_chat">
-            <div #idMessage [style]="'flex-direction: ' + ((msg[num].id_send === user.id) ? 'row-reverse' : 'row')" ngClass="class_section_chat_messages_divisor" *ngFor="let item of messages as msg; index as num">
-                <app-message [avatar]="findAvatar(msg[num].id_send)" [message]="msg[num]"></app-message>
-            </div>
+            <ng-template [ngIf]="chatType === 1" [ngIfElse]="chatGroup">
+                <div #idMessage [style]="'flex-direction: ' + ((msg[num].id_send === user.id) ? 'row-reverse' : 'row')" ngClass="class_section_chat_messages_divisor" *ngFor="let item of messages as msg; index as num">
+                    <app-message [avatar]="findAvatar(msg[num].id_send)" [message]="msg[num]"></app-message>
+                </div>
+            </ng-template>
+
+            <ng-template #chatGroup>
+                <div #idMessage [style]="'flex-direction: ' + ((msg[num].id_send === user.id) ? 'row-reverse' : 'row')" ngClass="class_section_chat_messages_divisor" *ngFor="let item of messagesGroup as msg; index as num">
+                    <app-message [avatar]="findAvatar(msg[num].id_send)" [message]="msg[num]"></app-message>
+                </div>
+            </ng-template>
         </div>
 
         <div ngClass="class_section_chat_send_message_container">

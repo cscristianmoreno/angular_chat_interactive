@@ -3,7 +3,8 @@ import { Component, Input } from "@angular/core";
 import { GroupsDTO } from "src/app/dto/groups.dto";
 import { MembersDTO } from "src/app/dto/members.dto";
 import { UsersDTO } from "src/app/dto/users.dto";
-import { ResponsiveSections } from "src/app/enums/responsive.enum";
+import { ChatType } from "src/app/enums/chat.enum";
+import { SectionType } from "src/app/enums/section.enum";
 import { groupStruct } from "src/app/models/group.model";
 import { memberStruct } from "src/app/models/member.model";
 import { userStruct } from "src/app/models/user.model";
@@ -26,6 +27,9 @@ export class ProfileComponent {
     @Input()
     responsive!: boolean;
 
+    @Input()
+    chatType!: ChatType;
+
     constructor(private dateService: DateService, private responsiveService: ResponsiveService, private groupsDTO: GroupsDTO,
         private membersDTO: MembersDTO, private usersDTO: UsersDTO) {
 
@@ -36,7 +40,7 @@ export class ProfileComponent {
     }
 
     public onClickMoveToChat(): void {
-        this.responsiveService.section.next(ResponsiveSections.SECTION_CHAT);
+        this.responsiveService.section.next(SectionType.SECTION_CHAT);
     }
 
     public findAllGroups(): string[] {
@@ -62,19 +66,7 @@ export class ProfileComponent {
                 return;
             }
 
-            const capitalize: string[] = group.name.split(" ");
-            let firstLetter: string = "";
-
-            capitalize.forEach((str: string, num: number) => {
-                if ((num + 1) < capitalize.length) {
-                    firstLetter += str[0].toUpperCase() + ".";
-                }
-                else {
-                    firstLetter += str[0].toUpperCase();
-                }
-            });
-
-            groups.push(firstLetter);
+            groups.push(group.name);
         });
 
         return groups;

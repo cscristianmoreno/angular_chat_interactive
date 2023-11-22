@@ -1,5 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, Renderer2, ViewChild } from "@angular/core";
 import { SafeHtml } from "@angular/platform-browser";
+import { messageGroupStruct } from "src/app/models/message.group.model";
 import { messageStruct } from "src/app/models/message.model";
 import { userStruct } from "src/app/models/user.model";
 import { DateService } from "src/app/services/date.service";
@@ -17,7 +18,7 @@ import { UserService } from "src/app/services/user.service";
 export class MessageComponent implements AfterViewInit {
     
     @Input()
-    message!: messageStruct;
+    message!: messageStruct | messageGroupStruct;
 
     @Input()
     avatar!: string;

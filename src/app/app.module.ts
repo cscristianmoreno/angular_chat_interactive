@@ -27,6 +27,7 @@ import { AvatarDirective } from './directives/avatar.directive';
 import { AlertComponent } from './components/alert/alert.component';
 import { ArrayDirective } from './directives/array.directive';
 import { ArrayEmptyComponent } from './components/array.empty/array.empty.component';
+import { AvatarGroupComponent } from './components/avatar.group/avatar.group.component';
 
 @NgModule({
     declarations: [
@@ -51,6 +52,7 @@ import { ArrayEmptyComponent } from './components/array.empty/array.empty.compon
         IconComponent,
         AlertComponent,
         ArrayEmptyComponent,
+        AvatarGroupComponent,
         
         AvatarDirective,
         ArrayDirective

@@ -4,7 +4,7 @@
     
     <div ngClass="class_section_menu_item_name_container">
         <span [style]="'color: ' + ((chatIndex === users[num].id) ? 'white' : 'black')" ngClass="class_section_menu_item_name_title">{{users[num].name.first}} {{users[num].name.last}}</span>
-        <span [style]="'color: ' + ((chatIndex === users[num].id) ? 'white' : 'gray')" ngClass="class_section_menu_item_name_message">
+        <span [style]="'color: ' + ((chatIndex === users[num].id) ? 'white' : 'gray')" ngClass="class_section_menu_item_name_message class_text_ellipsis">
             <span *ngIf="checkIconMessage(users[num].id)" ngClass="class_icon_check" [innerHTML]="iconCheck"></span>
             {{lastMessage(users[num].id)}}
         </span>

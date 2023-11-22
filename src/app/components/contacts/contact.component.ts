@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, ElementRef, ChangeDetectionStrategy, Quer
 import { ContactsDTO } from "src/app/dto/contacts.dto";
 import { MessagesDTO } from "src/app/dto/messages.dto";
 import { UsersDTO } from "src/app/dto/users.dto";
+import { ChatType } from "src/app/enums/chat.enum";
 import { contactStruct } from "src/app/models/contact.model";
 import { userStruct } from "src/app/models/user.model";
 import { ChatService } from "src/app/services/chat.service";
@@ -104,6 +105,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
             return;
         }
 
+        this.chatService.chatType.next(ChatType.SECTION_CHAT_USER);
         this.chatService.chatIndex.next(id);
     }
 

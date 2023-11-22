@@ -1,6 +1,11 @@
 import { BehaviorSubject, Observable } from "rxjs";
 import { messageGroupStruct } from "../models/message.group.model";
 import { messageGroupRepository } from "../repository/message.group.repository";
+import { Injectable } from "@angular/core";
+
+@Injectable({
+    providedIn: "root"
+})
 
 export class MessagesGroupDTO implements messageGroupRepository {
 

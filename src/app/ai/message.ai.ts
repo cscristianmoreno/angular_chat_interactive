@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { ContactsDTO } from "src/app/dto/contacts.dto";
 import { MessagesDTO } from "src/app/dto/messages.dto";
 import { UsersDTO } from "src/app/dto/users.dto";
 import USERS_MESSAGES from "src/app/mock/message.mock";
@@ -15,7 +14,7 @@ import { messageCountStruct } from "../models/message.count.model";
 
 export class MessageAI {
 
-    constructor(private usersDTO: UsersDTO, private contactsDTO: ContactsDTO, private messagesDTO: MessagesDTO, 
+    constructor(private usersDTO: UsersDTO, private messagesDTO: MessagesDTO, 
         private userService: UserService, private messagesCountDTO: MessagesCountDTO) {
     }
 

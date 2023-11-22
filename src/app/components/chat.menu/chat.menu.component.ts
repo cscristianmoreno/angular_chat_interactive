@@ -13,6 +13,7 @@ import { MessagesCountDTO } from "src/app/dto/messages.count.dto";
 import { messageCountStruct } from "src/app/models/message.count.model";
 import { SearchService } from "src/app/services/search.service";
 import searchUtil from "src/app/utils/search.util";
+import { ChatType } from "src/app/enums/chat.enum";
 
 @Component({
     selector: "app-chat-menu",
@@ -116,6 +117,7 @@ export class ChatMenuComponent implements OnInit, AfterViewInit {
 
     public selectChat(num: number): void {
         const id2: number | string = this.users[num].id;
+        this.chatService.chatType.next(ChatType.SECTION_CHAT_USER);
         this.chatService.chatIndex.next(id2);
     }
 

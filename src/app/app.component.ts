@@ -7,7 +7,7 @@ import { BreakpointObserver, BreakpointState, Breakpoints } from "@angular/cdk/l
 import { EffectService } from "./services/effect.service";
 import { ChatService } from "./services/chat.service";
 import { ResponsiveService } from "./services/responsive.service";
-import { ResponsiveSections } from "./enums/responsive.enum";
+import { SectionType } from "./enums/section.enum";
 
 @Component({
     selector: "app-component",
@@ -61,7 +61,7 @@ export class AppComponent implements AfterViewInit {
             this.responsive = matches;
             
             if (!matches) {
-                this.responsiveService.section.next(ResponsiveSections.SECTION_MENU);
+                this.responsiveService.section.next(SectionType.SECTION_MENU);
                 return;
             }
         });
@@ -75,22 +75,22 @@ export class AppComponent implements AfterViewInit {
                 return;
             }
 
-            this.responsiveService.section.next(ResponsiveSections.SECTION_CHAT);
+            this.responsiveService.section.next(SectionType.SECTION_CHAT);
 
             this.responsiveService.section$.subscribe((res: number) => {
                 // eslint-disable-next-line prefer-const
                 let position: number = this.menuComponent.nativeElement.offsetLeft;
     
                 switch(res) {
-                    case ResponsiveSections.SECTION_MENU: {
+                    case SectionType.SECTION_MENU: {
                         position = 0;
                         break;
                     }
-                    case ResponsiveSections.SECTION_CHAT: {
+                    case SectionType.SECTION_CHAT: {
                         position -= this.chatComponent.nativeElement.offsetLeft;
                         break;
                     }
-                    case ResponsiveSections.SECTION_ASIDE: {
+                    case SectionType.SECTION_ASIDE: {
                         position -= this.asideComponent.nativeElement.offsetLeft;
                         break;
                     }

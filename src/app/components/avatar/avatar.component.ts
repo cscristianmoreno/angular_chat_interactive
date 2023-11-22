@@ -4,7 +4,8 @@ import { Component, Input } from "@angular/core";
     selector: "app-avatar",
     templateUrl: "./avatar.component.html",
     styleUrls: [
-        "./avatar.component.css"
+        "./avatar.component.css",
+        "../../../assets/css/sizes.css"
     ]
 })
 

@@ -1,5 +1,4 @@
 @import url("./assets/css/fonts.css");
-@import url("./assets/css/menu_items.css");
 @import url("./assets/css/responsive.css");
 
 * {
@@ -90,4 +89,10 @@
 
 .class_section_border_right {
     border-left: 0px;
+}
+
+.class_text_ellipsis {
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    overflow: hidden;
 }

@@ -1,0 +1,14 @@
+.class_section_avatar_group_name_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #add8e6;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.class_section_avatar_group_name_container b {
+    color: white;
+    font-size: 11px;
+}
