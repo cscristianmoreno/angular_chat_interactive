@@ -12,7 +12,7 @@ import { Component, Input } from "@angular/core";
 export class AvatarComponent {
     
     @Input()
-    avatar?: string;
+    avatar: string = "";
     
     @Input()
     size: string = "sm";

@@ -1,6 +1,6 @@
 
 <div #usersRef (click)="selectChat(users[num].id)" [style]="'background-color: ' + ((chatIndex === users[num].id) ? '#2f3343' : 'white')" ngClass='class_section_menu_item_container class_box_shadow' *ngFor="let i of users; index as num">
-    <app-avatar [avatar]="users[num].picture.medium"></app-avatar>
+    <app-avatar [avatar]="users[num].picture.large"></app-avatar>
     
     <div ngClass="class_section_menu_item_name_container">
         <span [style]="'color: ' + ((chatIndex === users[num].id) ? 'white' : 'black')" ngClass="class_section_menu_item_name_title">{{users[num].name.first}} {{users[num].name.last}}</span>
