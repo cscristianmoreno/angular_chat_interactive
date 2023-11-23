@@ -110,7 +110,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
             const sender: number | string = res[res.length - 1].id_send;
             
-            if (this.user.id !== sender) {
+            if (this.chatIndex !== sender && this.user.id !== sender) {
                 return;
             }
 

@@ -104,7 +104,7 @@ export class RequestComponent implements OnInit, AfterViewInit {
         this.elementEffectPosition = position;
     }
     
-    public deleteRequest(id: number | string, position: number): void {
+    public async deleteRequest(id: number | string, position: number): Promise<void> {
 
         const request: requestStruct = {
             id_sender: id,
@@ -112,6 +112,7 @@ export class RequestComponent implements OnInit, AfterViewInit {
             date: Date.now()
         };
         
+        await this.effectService.createEffect(this.elementUsersRef, position);
         
         this.users.splice(position, 1);
         this.requestsDTO.delete(request);

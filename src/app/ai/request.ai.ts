@@ -6,6 +6,8 @@ import { UserService } from "../services/user.service";
 import { requestStruct } from "../models/request.model";
 import { NotificationsDTO } from "../dto/notifications.dto";
 import { notificationStruct } from "../models/notification.model";
+import { contactStruct } from "../models/contact.model";
+import { ContactsDTO } from "../dto/contacts.dto";
 
 @Injectable({
     providedIn: "root"
@@ -14,7 +16,7 @@ import { notificationStruct } from "../models/notification.model";
 export class RequestAI {
     
     constructor(private usersDTO: UsersDTO, private requestsDTO: RequestsDTO, private userService: UserService, 
-        private notificationsDTO: NotificationsDTO) {
+        private notificationsDTO: NotificationsDTO, private contactsDTO: ContactsDTO) {
         
     }
 
@@ -27,7 +29,17 @@ export class RequestAI {
             return;
         }
 
-        const exists: requestStruct | undefined = this.requestsDTO.findById(this.userService.user.id, users[random].id);
+        // eslint-disable-next-line @typescript-eslint/init-declarations
+        let exists: requestStruct | contactStruct | undefined;
+        // eslint-disable-next-line prefer-const
+        exists = this.requestsDTO.findById(this.userService.user.id, users[random].id);
+
+        if (exists) {
+            return;
+        }
+
+        const contacts: contactStruct[] = this.contactsDTO.findAllById(this.userService.user.id);
+        exists = contacts.find((contact: contactStruct) => contact.id2 === users[random].id);
 
         if (exists) {
             return;
