@@ -27,7 +27,7 @@ export class ChatProfileComponent {
 
         if ("fullname" in data) {
             this.name = data.fullname;
-            this.avatar = data.picture.medium;
+            this.avatar = data.picture.large;
         }
         else {
             this.name = data.name;
