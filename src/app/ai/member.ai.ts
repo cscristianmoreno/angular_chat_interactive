@@ -41,7 +41,11 @@ export class MemberAI {
             return;
         }
         
-        const find_member: memberStruct = this.membersDTO.findById(random) as memberStruct;
+        const find_member: memberStruct | undefined = this.membersDTO.findById(users[random].id);
+
+        if (find_member && find_member.group_id === randomGroupId) {
+            return;
+        }
 
         const { name } = group;
         // const user: userStruct = users.find((user: userStruct) => user.id === owner_id) as userStruct;
