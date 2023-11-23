@@ -77,7 +77,13 @@ export class GroupComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit(): void {
         this.groupsRef.changes.subscribe(() => {
-            this.effectService.createEffect(this.groupsRef, this.groupsRef.length - 1);
+            if (this.searchService.search.value.length) {
+                this.effectService.createEffect(this.groupsRef, 0);
+            }
+            else {
+                this.effectService.createEffect(this.groupsRef, this.groupsRef.length - 1);
+            }
+            
             this.changeDetectorRef.detectChanges();
         });
 
