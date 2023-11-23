@@ -36,6 +36,14 @@ export class MemberAI {
         if (users[random].id === this.userService.user.id) {
             return;
         }
+
+        // if (group.max_members === )
+
+        const members_in_group: number = this.membersDTO.findAllByGroupId(group.id).length;
+
+        if (members_in_group === group.max_members) {
+            return;
+        }
         
         if (users[random].id === group.owner_id) {
             return;

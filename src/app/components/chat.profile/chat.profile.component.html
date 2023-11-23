@@ -10,7 +10,14 @@
         
     <div ngClass="class_section_user_name_container">
         <span ngClass="class_text_ellipsis">{{name}}</span>
-        <span *ngIf="type === 1">En línea</span>
+
+        <ng-template [ngIf]="type === 2" #showUserInLine>
+            <span>Miembros: {{group_members}} / {{group_max_members}}</span>
+        </ng-template>
+
+        <ng-template #showUserInLine>
+            <span>En línea</span>
+        </ng-template>
     </div>
 
 </div>

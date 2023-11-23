@@ -10,7 +10,7 @@
         </div>
     </div>
     
-    <div (click)="joinGroup(groups[num].id)" ngClass="class_section_menu_item_message_date">
+    <div (click)="joinGroup(groups[num])" ngClass="class_section_menu_item_message_date">
         <ng-template [ngIf]="isMember(groups[num].id)" [ngIfElse]="showButtonJoin">
             <app-button (click)="exploreGroup(groups[num].id)" title="Explorar" color="primary"></app-button>
         </ng-template>

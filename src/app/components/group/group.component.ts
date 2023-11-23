@@ -112,14 +112,20 @@ export class GroupComponent implements OnInit, AfterViewInit {
         return list;
     }
 
-    public joinGroup(id: number): void {
-        if (this.isMember(id)) {
+    public joinGroup(group: groupStruct): void {
+        if (this.isMember(group.id)) {
+            return;
+        }
+
+        const group_members: number = this.membersDTO.findAllByGroupId(group.id).length;
+
+        if (group_members === group.max_members) {
             return;
         }
 
         const member: memberStruct = {
             user_id: this.userService.user.id,
-            group_id: id,
+            group_id: group.id,
             date: new Date().toLocaleTimeString()
         };
 
