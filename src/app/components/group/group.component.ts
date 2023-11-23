@@ -43,7 +43,7 @@ export class GroupComponent implements OnInit, AfterViewInit {
             this.groupsAux = [];
 
             groups.forEach((str: groupStruct) => {
-                this.groupsAux.unshift(str);
+                this.groupsAux.push(str);
             });
 
             if (!this.searchService.search.value) {
