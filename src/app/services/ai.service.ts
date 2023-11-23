@@ -17,6 +17,7 @@ export class AiService {
 
     public async createUsers(): Promise<void> {
         await this.http.createUsers(20);
+        this.messageAI.generateRandomMessage();
     }
 
     public async aiStart(): Promise<void> {
